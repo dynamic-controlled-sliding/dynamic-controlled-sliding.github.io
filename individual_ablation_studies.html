@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Dynamic On-Palm Manipulation via Controlled Sliding">
+  <meta name="keywords" content="Dynamic Manipulation Sliding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic On-Palm Manipulation via Controlled Sliding</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+
+<body>
+<section>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Ablation Study Experiments</h2>
+      <h2 class="title is-4">Videos paused by default. Start individual videos by right clicking</h2>
+      <h2 class="title is-4">With End Effector Force Tracking</h2>
+      <div class="columns is-2 is-centered">
+        <div class="column is-4 has-text-centered">
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp1_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp2_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp3_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp4_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp5_annotated.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="column is-4 has-text-centered">
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp6_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp7_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp8_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp9_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/w_force_tracking/w_exp10_annotated.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h2 class="title is-4">Without End Effector Force Tracking</h2>
+      <div class="columns is-2 is-centered">
+        <div class="column is-4 has-text-centered">
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp1_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp2_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp3_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp4_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp5_annotated.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="column is-4 has-text-centered">
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp6_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp7_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp8_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp9_annotated.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="teaser"  muted loop playsinline width="100%">
+            <source src="./videos/ablation_study/wo_force_tracking/wo_exp10_annotated.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>  
+    </div>
+  </div>
+</section>
+</body>
+</html>

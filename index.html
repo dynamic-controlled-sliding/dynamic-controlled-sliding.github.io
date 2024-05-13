@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Dynamic On-Palm Manipulation via Controlled Sliding">
+  <meta name="keywords" content="Dynamic Manipulation Sliding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic On-Palm Manipulation via Controlled Sliding</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria1-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dynamic On-Palm Manipulation via Controlled Sliding</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yangwill.github.io/">William Yang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://dair.seas.upenn.edu/">Michael Posa</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Pennsylvania,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <video id="teaser" autoplay muted loop playsinline height="100%">
+      <source src="./videos/log_35_iphone_trim.mov"
+              type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Non-prehensile manipulation enables fast interactions with objects by circumventing the need to grasp and ungrasp as well as handling objects that cannot be grasped through force closure.
+          Current approaches to non-prehensile manipulation focus on static contacts, avoiding the underactuation that comes with sliding.
+          However, the ability to control sliding contact, essentially removing the no-slip constraint, opens up new possibilities in dynamic manipulation.
+          In this paper, we explore a challenging dynamic non-prehensile manipulation task that requires the consideration of the full spectrum of hybrid contact modes.
+          We leverage recent methods in contact-implicit MPC to handle the multi-modal planning aspect of the task.
+          We demonstrate, with careful consideration of integration between the simple model used for MPC and the low-level tracking controller, how contact-implicit MPC can be adapted to dynamic tasks.
+          Surprisingly, despite the known inaccuracies of frictional rigid contact models, our method is able to react to these inaccuracies while still quickly performing the task.
+          Moreover, we do not use common aids such as reference trajectories or motion primitives, highlighting the generality of our approach.
+          To the best of our knowledge, this is the first application of contact-implicit MPC to a dynamic manipulation task in three dimensions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Task Models</h2>
+      <p> We abstract the system into two models. The LCS model captures the contact forces \(\lambda\) between the end effector, tray, and supports. The the LCS model, the robot arm is abstracted away and replaced with direct inputs to the end effector \(u_{lcs}\). We then use a robot-only model to track the end effector position \(q_{ee}(t)\) and force \(u_{lcs}(t)\) trajectories commanded from the MPC, so \(\lambda_{ee} = u_{lcs}\).
+        <div class="column has-text-centered">
+            <img src="./images/task_models.png"
+                   class="interpolation-image"
+                   alt="Interpolate start reference image."/>
+          </div>
+    </div>
+  </div>
+  <br>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Contact-Implicit Model Predictive Control</h2>
+      <p>The Contact-Implicit MPC is able to automatically plan for the states, inputs, and contact forces without pre-specified contact modes. This task requires consideration of frictional contact modes, which is difficult of two reasons. First,  it greatly increases the number of contact modes that need to be considered. Second, frictional contact is notoriously difficult to model.</p>
+      <div class="columns is-2 is-centered">
+        <div class="column">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/log_35_iphone_trim.mov"
+                    type="video/mp4">
+          </video>
+          <p>Execution on the physical robot. Tray is typical serving tray (1kg)</p>
+        </div>
+        <div class="column">
+          <video id="teaser" autoplay muted loop playsinline width="90%">
+            <source src="./videos/hwlog35_w_legend.mp4"
+                    type="video/mp4">
+          </video>
+          <p>The plan visualization for the same experiment shows the planned states, inputs, and contact forces.</p>
+        </div>  
+      </div>  
+    </div>
+  </div>
+  <br>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Unknown Mass/Inertia</h2>
+      <p>We place various objects on top of the tray. We do not inform the MPC of the objects, showcasing moderate robustness to inaccurate mass/inertia. In order to not occlude fiducials used to track the position of the tray, we place the objects closer to the edges of the tray.</p>
+      <div class="columns is-2 is-centered">
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/sugar_box_overlayed.mp4"
+                    type="video/mp4">
+          </video>
+           <p>Sugar Box (515g, ~50% tray mass)</p>
+        </div>
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/mug_overlayed.mp4"
+                    type="video/mp4">
+          </video>
+          <p>Mug (319g, ~30% tray mass)</p>
+        </div>  
+      </div>  
+    </div>
+  </div>
+  <br>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Advantages of a Model-Based Controller</h2>
+      <p>Our controller fails for large unmodeled differences in mass and geometry such as two trays stacked on top of each other. We can remedy this by simply updating our model parameters, which results in our controller successfully completing the task.</p>
+        <video id="teaser" autoplay muted loop playsinline width="100%">
+          <source src="./videos/stacked_trays_overlayed.mp4"
+                  type="video/mp4">
+        </video>
+        <p class="has-text-centered">Two stacked trays (MPC model has updated mass/inertia/geometry)</p>
+    </div>
+  </div>
+  <br>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Ablation Study (Force Tracking)</h2>
+      <p>Tracking the end effector force commanded by the MPC improves the speed and reliability of the task.</p>
+      <a href="individual_ablation_studies.html">Individual Ablation Study Videos</A>
+      <div class="columns is-2 is-centered">
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/w_force_tracking_grid.mp4"
+                    type="video/mp4">
+          </video>
+           <p>Tracking end effector force trajectory (8/10 success)</p>
+        </div>
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/wo_force_tracking_grid.mp4"
+                    type="video/mp4">
+          </video>
+          <p>NOT tracking end effector force trajectory (3/10 success)</p>
+        </div>  
+      </div>  
+    </div>
+  </div>
+  <br>
+  <div class="columns is-centered">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Additional Task (Rotation using a Wall)</h2>
+      <p>Modifying only the controller gains and environment specification, we accomplish a rotation task using an external wall. The task is specified only as a final position.</p>
+      <div class="columns is-2 is-centered">
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/log_78_iphone_trim.mp4"
+                    type="video/mp4">
+          </video>
+           <p>Negative Rotation around Z-Axis</p>
+        </div>
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/log_79_iphone_trim.mp4"
+                    type="video/mp4">
+          </video>
+          <p>Positive Rotation around Z-Axis</p>
+        </div>
+      </div>  
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template borrowed code from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
