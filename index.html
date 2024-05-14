@@ -148,7 +148,7 @@
   <div class="columns is-centered">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Contact-Implicit Model Predictive Control</h2>
-      <p>The Contact-Implicit MPC is able to automatically plan for the states, inputs, and contact forces without pre-specified contact modes. This task requires consideration of frictional contact modes, which is difficult of two reasons. First,  it greatly increases the number of contact modes that need to be considered. Second, frictional contact is notoriously difficult to model.</p>
+      <p> The difficulty of the task is primarily due to the poor predictive performance of dynamic frictional contact models. We utilize feedback on the object state to account for these modeling inaccuracies, specifically we utilize Contact-Implicit MPC is able to automatically plan for the states, inputs, and contact forces without pre-specified contact modes. This eliminates the need for motion primitives. Consideration of frictional contact modes in 3D significantly increases the number of contact modes that need to be considered, which makes this one of the most complex tasks successfully reasoned by Contact-Implicit MPC.</p>
       <div class="columns is-2 is-centered">
         <div class="column">
           <video id="teaser" autoplay muted loop playsinline width="100%">
@@ -251,6 +251,15 @@
   </div>
 </section>
 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Acknowledgements</h2>
+    We would like to thank Alp Aydinoglu and Wei-Cheng Huang for helpful explanations about C3. We thank Bibit Bianchini and Mengti Sun for their tutorial on TagSlam. We thank Brian Acosta, Leon Kim, and Jessica Yin for their help with hardware experiments.
+    <br>
+    <br>
+    This material is based upon work supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. DGE-1845298.
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
