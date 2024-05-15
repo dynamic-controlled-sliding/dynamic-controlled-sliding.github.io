@@ -134,18 +134,22 @@
 
 <section>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Task Models</h2>
       <p> We abstract the system into two models. The LCS model captures the contact forces \(\lambda\) between the end effector, tray, and supports. The the LCS model, the robot arm is abstracted away and replaced with direct inputs to the end effector \(u_{lcs}\). We then use a robot-only model to track the end effector position \(q_{ee}(t)\) and force \(u_{lcs}(t)\) trajectories commanded from the MPC, so \(\lambda_{ee} = u_{lcs}\).
+      </p>
         <div class="column has-text-centered">
             <img src="./images/task_models.png"
                    class="interpolation-image"
                    alt="Interpolate start reference image."/>
           </div>
     </div>
+    </div>
   </div>
   <br>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Contact-Implicit Model Predictive Control</h2>
       <p> The difficulty of the task is primarily due to the poor predictive performance of dynamic frictional contact models. We utilize feedback on the object state to account for these modeling inaccuracies, specifically we utilize Contact-Implicit MPC is able to automatically plan for the states, inputs, and contact forces without pre-specified contact modes. This eliminates the need for motion primitives. Consideration of frictional contact modes in 3D significantly increases the number of contact modes that need to be considered, which makes this one of the most complex tasks successfully reasoned by Contact-Implicit MPC.</p>
@@ -166,9 +170,11 @@
         </div>  
       </div>  
     </div>
+    </div>
   </div>
   <br>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Unknown Mass/Inertia</h2>
       <p>We place various objects on top of the tray. We do not inform the MPC of the objects, showcasing moderate robustness to inaccurate mass/inertia. In order to not occlude fiducials used to track the position of the tray, we place the objects closer to the edges of the tray.</p>
@@ -189,9 +195,11 @@
         </div>  
       </div>  
     </div>
+    </div>
   </div>
   <br>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Advantages of a Model-Based Controller</h2>
       <p>Our controller fails for large unmodeled differences in mass and geometry such as two trays stacked on top of each other. We can remedy this by simply updating our model parameters, which results in our controller successfully completing the task.</p>
@@ -201,13 +209,15 @@
         </video>
         <p class="has-text-centered">Two stacked trays (MPC model has updated mass/inertia/geometry)</p>
     </div>
+    </div>
   </div>
   <br>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Ablation Study (Force Tracking)</h2>
       <p>Tracking the end effector force commanded by the MPC improves the speed and reliability of the task.</p>
-      <a href="individual_ablation_studies.html">Individual Ablation Study Videos</A>
+      <a href="individual_ablation_studies.html">Individual Ablation Study Videos</a>
       <div class="columns is-2 is-centered">
         <div class="column has-text-centered">
           <video id="teaser" autoplay muted loop playsinline width="100%">
@@ -224,10 +234,12 @@
           <p>NOT tracking end effector force trajectory (3/10 success)</p>
         </div>  
       </div>  
+      </div>
     </div>
   </div>
   <br>
   <div class="columns is-centered">
+    <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Rotation using a Wall</h2>
       <p>Modifying only the controller gains and environment specification, we accomplish a rotation task using an external wall. The task is specified only as a final position.</p>
@@ -246,6 +258,7 @@
           </video>
           <p>Positive Rotation around Z-Axis</p>
         </div>
+      </div>
       </div>  
     </div>
   </div>
