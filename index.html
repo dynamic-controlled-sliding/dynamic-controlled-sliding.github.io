@@ -105,10 +105,14 @@
       <source src="./videos/log_35_iphone_trim.mov"
               type="video/mp4">
     </video>
+    
   </div>
 </section>
 
 <section class="section">
+  <div class="columns is-centered">
+      <pre><code>All videos shown in realtime</pre></code>
+  </div>
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -159,7 +163,7 @@
             <source src="./videos/log_35_iphone_trim.mov"
                     type="video/mp4">
           </video>
-          <p>Execution on the physical robot. Tray is typical serving tray (1kg)</p>
+          <p>Execution on the physical robot. Tray has a mass of 1kg</p>
         </div>
         <div class="column">
           <video id="teaser" autoplay muted loop playsinline width="90%">
@@ -170,6 +174,30 @@
         </div>  
       </div>  
     </div>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Rotation using a Wall</h2>
+      <p>To highlight the generality of the chosen LCS model of our approach, we accomplish an entirely task. Modifying only the controller gains and environment specification, we accomplish a rotation task using an external wall. The task is specified only as a final position, where the final target state of the tray is rotated about the z-axis from its initial state.</p>
+      <div class="columns is-2 is-centered">
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/log_78_iphone_trim.mp4"
+                    type="video/mp4">
+          </video>
+           <p>Negative Rotation around Z-Axis</p>
+        </div>
+        <div class="column has-text-centered">
+          <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./videos/log_79_iphone_trim.mp4"
+                    type="video/mp4">
+          </video>
+          <p>Positive Rotation around Z-Axis</p>
+        </div>
+      </div>
+      </div>  
     </div>
   </div>
   <br>
@@ -202,7 +230,7 @@
     <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Advantages of a Model-Based Controller</h2>
-      <p>Our controller fails for large unmodeled differences in mass and geometry such as two trays stacked on top of each other. We can remedy this by simply updating our model parameters, which results in our controller successfully completing the task.</p>
+      <p>In addition to moderate robustness to object mass/inertia, our model-based framework allows us to easily accomodate new object model parameters. For the task below, we successfully manipulate a stack of two trays by giving the MPC an updated model.</p>
         <video id="teaser" autoplay muted loop playsinline width="100%">
           <source src="./videos/stacked_trays_overlayed.mp4"
                   type="video/mp4">
@@ -241,25 +269,17 @@
   <div class="columns is-centered">
     <div class="column">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Rotation using a Wall</h2>
-      <p>Modifying only the controller gains and environment specification, we accomplish a rotation task using an external wall. The task is specified only as a final position.</p>
-      <div class="columns is-2 is-centered">
-        <div class="column has-text-centered">
-          <video id="teaser" autoplay muted loop playsinline width="100%">
-            <source src="./videos/log_78_iphone_trim.mp4"
-                    type="video/mp4">
-          </video>
-           <p>Negative Rotation around Z-Axis</p>
-        </div>
-        <div class="column has-text-centered">
-          <video id="teaser" autoplay muted loop playsinline width="100%">
-            <source src="./videos/log_79_iphone_trim.mp4"
-                    type="video/mp4">
-          </video>
-          <p>Positive Rotation around Z-Axis</p>
-        </div>
-      </div>
-      </div>  
+      <h2 class="title is-3">Reliability Testing</h2>
+      <p>
+        We evaluate the reliability of our approach and its robustness to initialization by repeatedly executing the task without manual resets. Our framework successfully completes 6 cycles before deviating too far. 
+        <br>
+      </p>
+        <video id="teaser"controls muted playsinline width="100%">
+          <source src="./videos/consecutive_experiments.mov"
+                  type="video/mp4">                  
+        </video>
+        <p class="has-text-centered"> Video at 4x realtime </p>
+    </div>
     </div>
   </div>
 </section>
