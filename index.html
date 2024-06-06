@@ -57,7 +57,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Pennsylvania</span>
             <br>
-            <span class="author-block">RSS 2024</span>
+            <span class="author-block">Robotics: Science and Systems (RSS), 2024</span>
           </div>
 
           <div class="column has-text-centered">
@@ -72,7 +72,6 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -144,7 +143,7 @@
     <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Task Models</h2>
-      <p> We abstract the system into two models. The LCS model captures the contact forces \(\lambda\) between the end effector, tray, and supports. The the LCS model, the robot arm is abstracted away and replaced with direct inputs to the end effector \(u_{lcs}\). We then use a robot-only model to track the end effector position \(q_{ee}(t)\) and force \(u_{lcs}(t)\) trajectories commanded from the MPC, so \(\lambda_{ee} = u_{lcs}\).
+      <p> We abstract the system into two models. The LCS model captures the contact forces \(\lambda\) between the end effector, tray, and supports. In the LCS model, the robot arm is abstracted away and replaced with direct inputs to the end effector \(u_{lcs}\). We use a robot-only model to track the end effector position \(q_{ee}(t)\) and force \(u_{lcs}(t)\) trajectories commanded from the MPC, so \(\lambda_{ee} = u_{lcs}\).
       </p>
         <div class="column has-text-centered">
             <img src="./images/task_models.png"
@@ -159,7 +158,7 @@
     <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Contact-Implicit Model Predictive Control</h2>
-      <p> The difficulty of the task is primarily due to the poor predictive performance of dynamic frictional contact models. We utilize feedback on the object state to account for these modeling inaccuracies, specifically we utilize Contact-Implicit MPC is able to automatically plan for the states, inputs, and contact forces without pre-specified contact modes. This eliminates the need for motion primitives. Consideration of frictional contact modes in 3D significantly increases the number of contact modes that need to be considered, which makes this one of the most complex tasks successfully reasoned by Contact-Implicit MPC.</p>
+      <p> The difficulty of the task is primarily due to the poor predictive performance of dynamic frictional contact models. We utilize feedback on the object state to account for these modeling inaccuracies. Specifically we utilize contact-implicit MPC, which automatically plans for the states, inputs, and contact forces without pre-specified contact modes. Previous solutions would utilize motion primitives (to convert it to a planning problem) or reference trajectories (to convert it to a feedback problem), but our framework does not require either. Additionally, consideration of frictional contact modes in 3D significantly increases the number of contact modes that need to be considered, which makes this one of the most complex tasks successfully reasoned by contact-implicit MPC.</p>
       <div class="columns is-2 is-centered">
         <div class="column">
           <video id="teaser" autoplay muted loop playsinline width="100%">
@@ -220,7 +219,7 @@
     <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Unknown Mass/Inertia</h2>
-      <p>We place various objects on top of the tray. We do not inform the MPC of the objects, showcasing moderate robustness to inaccurate mass/inertia. In order to not occlude fiducials used to track the position of the tray, we place the objects closer to the edges of the tray.</p>
+      <p>We place various objects on top of the tray. We do not inform the MPC of the objects, showcasing moderate robustness to inaccurate mass/inertia. In order to not occlude fiducials used to track the position of the tray, we place the objects closer to the edges of the tray which has the additional effect of shifting the center of mass.</p>
       <div class="columns is-2 is-centered">
         <div class="column has-text-centered">
           <video id="teaser" autoplay muted loop playsinline width="100%">
@@ -245,7 +244,7 @@
     <div class="column">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Advantages of a Model-Based Controller</h2>
-      <p>In addition to moderate robustness to object mass/inertia, our model-based framework allows us to easily accomodate new object model parameters. For the task below, we successfully manipulate a stack of two trays by giving the MPC an updated model.</p>
+      <p>Although we showcase moderate robustness to incorrect object mass/inertia, our model-based framework also allows us to easily accomodate changes to the object model. For the task below, we successfully manipulate a stack of two trays by giving the MPC an updated model.</p>
         <video id="teaser" autoplay muted loop playsinline width="100%">
           <source src="./videos/stacked_trays_overlayed.mp4"
                   type="video/mp4">
